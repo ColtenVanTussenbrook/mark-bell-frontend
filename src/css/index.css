@@ -1,0 +1,84 @@
+@tailwind base;
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #2B2B2B;
+}
+
+h1, h2 {
+    font-family: Oswald, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+p {
+    font-size: 1.25rem;
+    color: white;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+.inner-container {
+    width: 75%;
+    margin: 0px auto;
+}
+
+.transform-50 {
+    transform: translateY(-50%);
+}
+
+.top-50-pct {
+    top: 50%;
+}
+
+.text-block p {
+    padding-bottom: 20px;
+}
+
+.text-block a {
+    text-decoration: underline;
+}
+
+.page-heading {
+    color: rgba(160, 174, 192, var(--tw-text-opacity));
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+    .page-heading {
+      font-size: 7rem;
+    }
+}
+
+.container {
+    width: 100%;
+}
+  
+@media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+}
+  
+@media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+}
+  
+@media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+}
+  
+@media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+}
