@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 function PostPreview(props) {
-    console.log(props);
     
       if (props) {
     

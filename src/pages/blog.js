@@ -1,11 +1,12 @@
 import React from 'react';
 import PostPreview from '../components/postPreview';
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { graphql } from "gatsby";
 
 const Blog = ({ data }) => (
     <Layout>
-    <SEO title="About Colten Van Tussenbrook" />
+    <SEO title="Blog" />
     <div className="pt-6 md:pt-12">
       <h1 className="page-heading">Blog</h1>
       {data.allWordpressPost.edges.map(post => {

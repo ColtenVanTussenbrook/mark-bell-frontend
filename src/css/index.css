@@ -18,9 +18,17 @@ p {
     color: white;
 }
 
+a {
+    text-decoration: underline;
+}
+
 @tailwind components;
 
 @tailwind utilities;
+
+.container {
+    width: 100%;
+}
 
 .inner-container {
     width: 75%;
@@ -49,14 +57,38 @@ p {
     text-decoration: underline;
 }
 
+/** BLOG POST CSS **/
+.blog-post-content p {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.blog-post-content ol, ul {
+    margin-left: 1rem;
+}
+
+.blog-post-content ol li {
+    list-style-type: decimal;
+    margin-bottom: 1rem;
+    font-size: 1.25rem; 
+}
+
+.blog-post-content ul li {
+    list-style-type: disc;
+    margin-bottom: 1rem;
+    font-size: 1.25rem; 
+}
+
+@media (min-width: 640px) {
+    .blog-post-content ol, ul {
+        margin-left: 2rem;
+    }
+}
+
 @media (min-width: 640px) {
     .page-heading {
       font-size: 7rem;
     }
-}
-
-.container {
-    width: 100%;
 }
   
 @media (min-width: 640px) {

@@ -3,17 +3,35 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const BlogPostTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.wordpressPost.title}
-    />
-    <div className="inner-container">
-        <h1 className="text-gray-500 text-5xl underline">{data.wordpressPost.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
-    </div>
-   </Layout>
-)
+function BlogPostTemplate ({ data }) { 
+
+  const date = new Date(data.wordpressPost.date);
+  const day = date.getUTCDate().toString();
+  const month = date.getMonth();
+  const year = date.getUTCFullYear().toString();
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const dateStr = monthNames[month] + " " + day + ", "  + year;
+  const authorName = data.wordpressPost.author.name;
+
+  return(
+    <Layout>
+      <SEO
+        title={data.wordpressPost.title}
+      />
+      <div className="inner-container">
+          <h1 className="text-gray-500 text-5xl underline">{data.wordpressPost.title}</h1>
+          <i>Written by: {authorName}</i><span> || </span><i>Published: {dateStr}</i>
+          <div className="mt-8 blog-post-content" dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
+      </div>
+    </Layout>
+  );
+  
+}
 export default BlogPostTemplate;
 
 export const query = graphql`
@@ -21,6 +39,10 @@ export const query = graphql`
         wordpressPost(wordpress_id: { eq: $id }) {
             title
             content
+            date
+            author {
+              name
+            }
         }
     }
 `
