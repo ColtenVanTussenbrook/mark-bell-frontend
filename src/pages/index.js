@@ -14,7 +14,7 @@ const IndexPage = () => (
         <p className="text-xl md:text-3xl mb-10">I'm a software engineer in <span className="text-gray-500">Salt Lake City</span>. I build modern apps and websites that have a clean design and are easy for people to use.</p>
         <p className="text-lg" >I'm currently taking on freelance projects, <Link to="/freelance">contact me here</Link> if you're looking for a developer!</p>
       </div>
-      <div className="pers-links pl-2 lg:pl-8 md:w-1/5">
+      <div className="pers-links w-full md:w-1/5 mt-8 md:mt-0 text-center">
         <SocialLinks display={"block"} />
       </div>
     </div>
