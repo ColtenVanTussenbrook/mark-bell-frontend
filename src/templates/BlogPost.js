@@ -24,7 +24,7 @@ function BlogPostTemplate ({ data }) {
         title={data.wordpressPost.title}
       />
       <div className="inner-container">
-        <div className="blog-post my-24">
+        <div className="blog-post my-16 md:my-24">
           <h1 className="text-gray-500 text-4xl md:text-5xl underline">{data.wordpressPost.title}</h1>
           <i>Written by: {authorName}</i><span> || </span><i>Published: {dateStr}</i>
           <div className="mt-8 blog-post-content" dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
