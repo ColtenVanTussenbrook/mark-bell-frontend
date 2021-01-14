@@ -9,7 +9,7 @@ const SocialLinks = () => {
     const twitter = "https://twitter.com/coltvant";
 
     return (
-        <ul className="hidden md:block">
+        <ul>
         <a href={gitHub} target="blank">
             <li className="text-1xl md:text-2xl hover:underline pr-8 md:pr-12 pb-3 inline-block md:block">
                 <span className="inline-flex mr-2 underline hidden md:inline">GitHub</span> 
