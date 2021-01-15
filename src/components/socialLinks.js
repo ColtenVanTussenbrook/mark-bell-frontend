@@ -13,19 +13,19 @@ const SocialLinks = () => {
         <a href={gitHub} target="blank">
             <li className="text-1xl md:text-2xl hover:underline pr-8 md:pr-12 pb-3 inline-block md:block">
                 <span className="inline-flex mr-2 underline hidden md:inline">GitHub</span> 
-                <span className="inline-flex w-4 md:w-8 h-full"><img src={gitHubLogo} alt="GitHub Logo" /></span>
+                <span className="inline-flex h-full"><img src={gitHubLogo} alt="GitHub Logo" /></span>
             </li>
         </a>
         <a href={linkedIn} target="blank">
             <li className="text-1xl md:text-2xl hover:underline pr-8 md:pr-12 pb-3 inline-block md:block">
                 <span className="inline-flex mr-2 underline hidden md:inline">LinkedIn</span> 
-                <span className="inline-flex w-4 md:w-8 h-full pt-1"><img src={linkedInLogo} alt="LinkedIn Logo" /></span>
+                <span className="inline-flex h-full pt-1"><img src={linkedInLogo} alt="LinkedIn Logo" /></span>
             </li>
         </a>
         <a href={twitter} target="blank">
             <li className="text-1xl md:text-2xl hover:underline pr-8 md:pr-12 pb-3 inline-block md:block">
                 <span className="inline-flex mr-2 underline hidden md:inline">Twitter</span> 
-                <span className="inline-flex w-4 md:w-8 h-full pt-1"><img src={twitterLogo} alt="Twitter Logo" /></span>
+                <span className="inline-flex h-full pt-1"><img src={twitterLogo} alt="Twitter Logo" /></span>
             </li>
         </a>
         </ul>
