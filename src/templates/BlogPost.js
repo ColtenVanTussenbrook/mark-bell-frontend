@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import SocialShare from "../components/socialShare";
 
 function BlogPostTemplate ({ data }) { 
 
@@ -29,6 +30,7 @@ function BlogPostTemplate ({ data }) {
           <i>Written by: {authorName}</i><span> || </span><i>Published: {dateStr}</i>
           <div className="mt-8 blog-post-content" dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
         </div>
+        <SocialShare data={data.wordpressPost} />
       </div>
     </Layout>
   );
@@ -42,6 +44,7 @@ export const query = graphql`
             title
             content
             date
+            path
             author {
               name
             }
