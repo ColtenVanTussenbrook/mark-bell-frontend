@@ -1,5 +1,5 @@
 ## Personal Site Blog
 
-A gatsby frontend for my personal website: https://coltenv.com
+A gatsby frontend for mrkbll.com
 
 Backend is WordPress, repo is found here: 

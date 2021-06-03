@@ -2,21 +2,21 @@ import React from "react"
 import Layout from "./layout"
 import { graphql } from "gatsby"
 
-const About = ({ data }) => (
+const Contact = ({ data }) => (    
   <Layout>
-    <div className="text-mb-blue-nav mt-14">
+    <div className="text-mb-blue-nav text-center mt-14">
       <div dangerouslySetInnerHTML={{__html: data.wordpressPage.content}} />
     </div>
   </Layout>
 )
 
-export default About
+export default Contact
 
 export const query = graphql`
   query {
-    wordpressPage(slug: { eq: "about" }) {
-        title
-        content
+    wordpressPage(slug: { eq: "contact" }) {
+      title
+      content
     }
   }
 `

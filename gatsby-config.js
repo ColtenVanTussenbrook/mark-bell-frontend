@@ -1,26 +1,10 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
-    title: `Colten V Blog`,
-    description: `Blog using Gatsby`,
+    title: `Mark Bell`,
+    description: `Mark Bell Photography Portfolio`,
     author: `colten van tussenbrook`,
-    menuLinks: [
-      {
-        name: 'Home',
-        link: '/',
-      },
-      {
-        name: 'Blog',
-        link: '/blog',
-      },
-      {
-        name: 'Freelance',
-        link: '/freelance',
-      },
-      {
-        name: 'About',
-        link: '/about',
-      },
-    ]
   },
   plugins: [
     {
@@ -39,6 +23,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -52,12 +37,20 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
-        baseUrl: "cms.coltenv.com",
+        baseUrl: "cms.mrkbll.com",
         protocol: "http",
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
         verboseOutput: false,
         perPage: 100,
         concurrentRequests: 10,
@@ -75,23 +68,6 @@ module.exports = {
           return entities
         },
       },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          "UA-186945699-1",
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Oswald`,
-        ],
-        display: 'swap'
-      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

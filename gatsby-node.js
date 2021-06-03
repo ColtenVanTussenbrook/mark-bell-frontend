@@ -9,7 +9,7 @@
 const path = require(`path`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  const BlogPostTemplate = path.resolve("./src/templates/BlogPost.js")
+  const PhotoTemplate = path.resolve("./src/templates/PhotoTemplate.js")
   const result = await graphql(`
     {
       allWordpressPost {
@@ -26,11 +26,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  const BlogPosts = result.data.allWordpressPost.edges
-  BlogPosts.forEach(post => {
+  const PhotoPages = result.data.allWordpressPost.edges
+  PhotoPages.forEach(post => {
     createPage({
-      path: `/post/${post.node.slug}`,
-      component: BlogPostTemplate,
+      path: `/${post.node.slug}`,
+      component: PhotoTemplate,
       context: {
         id: post.node.wordpress_id,
       },
