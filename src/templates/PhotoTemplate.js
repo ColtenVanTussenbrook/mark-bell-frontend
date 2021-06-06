@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css"
 
 function PhotoTemplate ({ data }) {   
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     autoplay: false,
     slidesToShow: 1,
@@ -21,7 +21,7 @@ function PhotoTemplate ({ data }) {
   if (data) {
     return(
       <Layout>
-          <div className="mt-14 px-8 md:px-0">
+          <div className="mt-14 px-8 pt-4 md:pt-0 md:px-0">
             <div className="md:hidden text-mb-blue-nav text-xl">
               {data.wordpressPost.title}
             </div>
@@ -30,7 +30,7 @@ function PhotoTemplate ({ data }) {
                 key++;
                 const showPhoto = getImage(photo.photo.localFile)
                 return (
-                  <GatsbyImage image={showPhoto} width="750" alt="portraits of saying goodbye photo" key={key} />
+                  <GatsbyImage image={showPhoto} alt="portraits of saying goodbye photo" key={key} />
                 )
               })
               }
@@ -55,7 +55,8 @@ export const query = graphql`
                 localFile {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 750
+                      width: 525
+                      maxHeight: 700
                       placeholder: BLURRED
                       layout: CONSTRAINED
                     )

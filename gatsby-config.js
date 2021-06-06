@@ -22,7 +22,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          quality: 90
+        }
+      }
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,

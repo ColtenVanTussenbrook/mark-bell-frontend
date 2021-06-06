@@ -13,24 +13,20 @@ body {
 }
 
 .insta-width {
-  width: 30%;
+  width: 25%;
 }
 
 @media (min-width: 640px) {
   .insta-width {
-    width: 10%;
+    width: 7%;
   }
 }
 
 .slider-images {
-  max-width: 750px;
+  max-width: 525px;
+  max-height: 700px;
+  margin: 0 auto;
 }
-
-/* @media (min-width: 640px) {
-  .slider-images {
-    width: 750px;
-  }
-} */
 
 .slick-prev:before,
 .slick-next:before {

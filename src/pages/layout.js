@@ -12,7 +12,7 @@ const Layout = ({children}) => {
           <h2 className="text-2xl text-mb-blue-nav md:mb-6">MARK BELL</h2>
           <Header />
         </header>
-        <main className="container mx-auto flex-2 pt-6 md:pt-20">{children}</main>
+        <main className="container mx-auto flex-2">{children}</main>
       </div>
     </>
   )
