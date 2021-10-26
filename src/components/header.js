@@ -1,13 +1,30 @@
 import { Link } from "gatsby";
 import React from "react";
 import { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import hamburger from '../assets/images/hamburger-blue.png';
 import x from '../assets/images/x-blue.png';
 import insta from '../assets/images/instagram.png';
 
+export default function Header () {
 
+  const dataMenu = useStaticQuery(
+    graphql`
+      query Menu {
+        wpMenu {
+          menuItems {
+            nodes {
+              url
+              label
+              databaseId
+            }
+          }
+        }
+      }
+    `
+  )
 
-const Header = () => {
+  const links = dataMenu.wpMenu.menuItems.nodes;
 
   const [isHidden, setIsHidden] = useState("hidden");
   const [menuButton, setMenuButton] = useState(hamburger);
@@ -23,14 +40,6 @@ const Header = () => {
       }
   };
 
-  const links = {
-    0: 'Portraits of saying goodbye',
-    // 1: 'Did you fall in love last minute',
-    // 2: 'Day of the dead',
-    3: 'About',
-    4: 'Contact'
-  }
-
   return (
     <>
       <div className={"md:hidden"}>
@@ -38,11 +47,10 @@ const Header = () => {
       </div>
       <nav className="md:block sm:pt-3">
         <ul className={"md:block " + isHidden}>
-        {Object.keys(links).map((key) => {
-          const slug = links[key].replace(/\s+/g, '-').toLowerCase();
+        {links.map((link) => {
           return (
-            <li className="text-mb-blue-nav text-base mb-4" key={key}>
-              <Link to={`/${slug}`} activeClassName="active">{links[key]}</Link>
+            <li className="text-mb-blue-nav text-base mb-4" key={link.databaseId}>
+              <Link to={link.url} activeClassName="active">{link.label}</Link>
             </li>
           ) 
         })}
@@ -55,7 +63,4 @@ const Header = () => {
       </nav>
     </>
   );
-
 }
-
-export default Header;

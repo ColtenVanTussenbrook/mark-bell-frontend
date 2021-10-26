@@ -6,7 +6,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-function PhotoTemplate ({ data }) {   
+function PhotoTemplate ({ data }) { 
   const settings = {
     dots: false,
     infinite: false,
@@ -15,7 +15,7 @@ function PhotoTemplate ({ data }) {
     slidesToScroll: 1,
   }
 
-  const photos = data.wordpressPost.acf.photos;
+  const photos = data.wpPost.photos.photos;
   let key = 0;
 
   if (data) {
@@ -23,7 +23,7 @@ function PhotoTemplate ({ data }) {
       <Layout>
           <div className="mt-14 px-8 pt-4 md:pt-0 md:px-0">
             <div className="md:hidden text-mb-blue-nav text-xl">
-              {data.wordpressPost.title}
+              {data.wpPost.title}
             </div>
             <Slider {...settings} className="slider-images">
               {photos.map(photo => {
@@ -45,26 +45,27 @@ function PhotoTemplate ({ data }) {
 export default PhotoTemplate;
 
 export const query = graphql`
-    query($id: Int!) {
-        wordpressPost(wordpress_id: { eq: $id }) {
-          title
-          acf {
-            photos {
-              photo {
-                source_url
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 525
-                      maxHeight: 700
-                      placeholder: BLURRED
-                      layout: CONSTRAINED
-                    )
-                  }
-                }
+  query($id: String!) {
+    wpPost(id: { eq: $id }) {
+      title
+      photos {
+        photos {
+          photo {
+            sourceUrl
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 525
+                  height: 700
+                  quality: 100
+                  placeholder: BLURRED
+                  layout: CONSTRAINED
+                )
               }
             }
           }
         }
+      }
     }
+  }
 `

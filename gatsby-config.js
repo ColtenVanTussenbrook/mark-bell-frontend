@@ -54,31 +54,9 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        baseUrl: "cms.mrkbll.com",
-        protocol: "http",
-        hostingWPCOM: false,
-        useACF: true,
-        verboseOutput: false,
-        perPage: 100,
-        concurrentRequests: 10,
-        includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
-        ],
-        excludedRoutes: [],
-        normalizer: function ({ entities }) {
-          return entities
-        },
+        url: "https://cms.mrkbll.com/graphql",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
 
