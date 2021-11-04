@@ -1,5 +1,7 @@
-## Personal Site Blog
+## Mark Bell Photography site
 
-A gatsby frontend for mrkbll.com
+Frontend Mark Bell Photography: https://mrkbll.com.
 
-Backend is WordPress, repo is found here: 
+Built using Gatsby/React + Tailwind
+
+Backend is a custom WordPress theme, also built by me 
